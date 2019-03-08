@@ -1,5 +1,9 @@
 package com.BridgeLabs.Util;
 
+import java.util.List;
+
+import com.BridgeLabs.Functional.Str;
+
 public class FunctionalProgramming {
 	
 	public static void power(int n)
@@ -77,15 +81,50 @@ public class FunctionalProgramming {
 			double	Root2 =Math.abs (-b - Math.sqrt(Math.abs(d1)))/(2*a);
 			System.out.println("first root is "+ Root1);
 			System.out.println("second root is "+Root2);
-			}
+		}
 
-			
+		
+  //Permutation LOGIC
+		
+
+//Stop Watch
+	static long start=0;
+	static long stop=0;
+	public static long start()
+	{
+		start=System.currentTimeMillis();
+		System.out.println(start);
+		return start;
+	}
+	
+	public static long stop()
+	{
+		stop=System.currentTimeMillis();
+		System.out.println(stop);
+		return stop;
+	}
+	public static long elapse()
+	{
+		long diff = 0;
+		if(stop==0)
+		{
+			System.out.println(start+","+stop);
+			long now=System.currentTimeMillis();
+			System.out.println(now);
+			diff=now-start;
+		}
+		else
+		{
+			System.out.println(stop+" ,"+start);
+		}
+	return diff;
+	
+	
+	
+ }
+		
 }
-		
-		
-		
-		
-		
+	
 		
 		
 		
