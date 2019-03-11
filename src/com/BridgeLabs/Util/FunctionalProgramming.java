@@ -1,8 +1,6 @@
 package com.BridgeLabs.Util;
 
-import java.util.List;
-
-import com.BridgeLabs.Functional.Str;
+import java.util.Random;
 
 public class FunctionalProgramming {
 	
@@ -43,6 +41,8 @@ public class FunctionalProgramming {
 						System.out.print(arr[k]);
 						System.out.print("\n");
 					}
+					else
+						System.out.println("not a single combination is present");
 				}
 			
 		}
@@ -65,10 +65,10 @@ public class FunctionalProgramming {
 		
 // Logic TO Caluculate the distance between Two Points
 		
-		public static void calculate(int x, int y)
+		public static double calculate(int x, int y)
 		{
 			double cal=Math.sqrt(x*x+y*y);
-			System.out.println(cal);
+			return cal;
 				
 		}
 		
@@ -122,6 +122,51 @@ public class FunctionalProgramming {
 	
 	
  }
+	
+	 public static void Username(String name)
+	 {
+	 	
+	 	if(name.length()>=3){
+	 		System.out.print("Hello" + name + "How was your day");
+	 	}else
+	 	System.out.print("invalid name");
+	 	
+	 }
+
+	public static void betting(int money, int bet) {
+		// TODO Auto-generated method stub
+		
+		Random r=new Random();
+		int max=50;
+		int min=0;
+		int win=0;
+		int count=0,lose=0;
+		int pr=r.nextInt((max-min)+1)+min;
+		int sr=r.nextInt((max-min)+1)+min;
+		 while(money!=0){
+			
+			if(pr>sr)
+			{
+				money=money+bet;
+				win++;
+			}
+			if(sr>pr)
+			{
+				money=money-bet;
+				lose--;
+			}
+			count++;
+			
+		 }
+		 System.out.println("you won"+win);
+		 System.out.println("you lose"+lose);
+			double moneyperc=win*100/count;
+			double betperc=lose*100/count;
+			System.out.println("Percentage of money"+ moneyperc);
+			System.out.println("percentage of bet"+ betperc);		
+		
+	}
+	 
 		
 }
 	
