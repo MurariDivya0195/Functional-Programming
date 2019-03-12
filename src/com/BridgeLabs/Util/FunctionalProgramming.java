@@ -168,7 +168,172 @@ public class FunctionalProgramming {
 	}
 	 
 		
-}
+	//Tic-Tac-Toe logic
+	
+	public static String board[][]=new String[3][3];
+	static String cp="x";
+
+	public static void changeplayer() {
+		// TODO Auto-generated method stub
+	  if (cp == "x") {
+	      cp = "o";
+
+	  }
+
+	  else {
+
+	      cp = "x";
+
+	  }
+
+	}
+	public static boolean isBoardFull(){
+
+			         boolean isFull = true;
+
+
+
+			         for (int i = 0; i < 3; i++) {
+
+			             for (int j = 0; j < 3; j++) {
+
+			                 if (board[i][j] == "-") {
+
+			                     isFull = false;
+
+			                 }
+
+			             }
+
+			         }
+
+
+
+			         return isFull;
+
+
+	}
+	public static void printBoard()
+	{
+		 System.out.println("-------------");
+	        for (int i = 0; i < 3; i++) {
+
+	            System.out.print("| ");
+
+	            for (int j = 0; j < 3; j++) {
+
+	                System.out.print(board[i][j] + " | ");
+
+	            }
+
+	            System.out.println();
+
+	            System.out.println("-------------");
+
+	        }
+
+	}
+	public static boolean checkForWin() {
+		        return (checkRowsForWin() || checkColumnsForWin() || checkDiagonalsForWin());
+		    }
+	public static boolean checkRowsForWin() {
+
+	  for (int i = 0; i < 3; i++) {
+
+	      if (checkRowCol(board[i][0], board[i][1], board[i][2]) == true) {
+
+	          return true;
+
+	      }
+
+	  }
+
+	  return false;
+	}
+	public static boolean checkColumnsForWin() {
+
+		        for (int i = 0; i < 3; i++) {
+
+		            if (checkRowCol(board[0][i], board[1][i], board[2][i]) == true) {
+
+		                return true;
+
+		            }
+
+		        }
+
+		        return false;
+
+		    }
+	public static boolean checkDiagonalsForWin() {
+
+		        return ((checkRowCol(board[0][0], board[1][1], board[2][2]) == true) || (checkRowCol(board[0][2], board[1][1], board[2][0]) == true));
+
+		    }
+	public static boolean checkRowCol(String board2, String board3, String board4) {
+
+		        return ((board2 != "-" && (board2 == board3) && (board3 == board4)));
+
+		    }
+	public static boolean placeMark(int i, int j) {
+		        if ((i >= 0) && (i < 3)) {
+		            if ((j >= 0) && (j < 3)) {
+		                if (board[i][j] == "-") {
+
+		                    board[i][j] = cp;
+
+		                    return true;
+
+		                }
+		            }
+		        }
+		        return false;
+
+		    }
+
+
+	
+// LOGIC FOR COUPONS
+	
+	
+	public static int collect(int num)
+	{
+		
+		boolean[] isCollected = new boolean[num];
+		int count =0;
+		int distinct=0;
+		while(distinct < num)
+		{
+			int value = coupon(num);
+			count++;
+			if(!isCollected[value])
+			{
+				distinct++;
+				isCollected[value]=true;
+			}
+			
+		}
+		return count;
+	}
+
+	private static int coupon(int num) {
+		
+		return (int)(Math.random()*num);
+	}
+	
+	
+	
+	
+	
+	
+	}
+	
+	
+	
+	
+	
+	
+
 	
 		
 		
